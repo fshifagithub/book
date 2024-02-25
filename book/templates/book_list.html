@@ -1,0 +1,31 @@
+{%extends 'base.html'%}
+{%block body_block%}
+
+
+<div class="container">
+    <table class="table table-dark">
+        <tr>
+            <th>Name</th>
+            <th>author</th>
+            <th>price</th>
+            <th>publisher</th>
+            <th>Action</th>
+
+        </tr>
+        {% for boo in data%}
+        <tr>
+            <td>{{boo.name}}</td>
+            <td>{{boo.author}}</td>
+            <td>{{boo.price}}</td>
+            <td>{{boo.publisher}}</td>
+            
+        
+        <td>
+            <a href="{% url  'book-details' boo.id %}"><button type="button" class="btn btn-secondary">view</button></a>
+            <a href="{% url 'book-remove' boo.id %}"><button type="button" class="btn btn-secondary">remove</button></a>
+            <a href="{%url 'book-change' boo.id%}"><button type="button" class="btn btn-secondary">update</button></a>
+        </td>
+        </tr>
+        {%endfor%}
+    
+        {%endblock%}

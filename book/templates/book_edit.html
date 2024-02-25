@@ -1,0 +1,18 @@
+{%extends 'base.html'%}
+{%block body_block%}
+
+
+
+<div class="container justify-content-center d-flex "> 
+    {%if data.picture%}
+    <img src="{{data.picture.url}}" alt="">
+    {%endif%}
+    
+    <form action="" method="post" class="w-50 border mt-5  bg-info mt-5 justify-content-center" enctype="multipart/form-data">
+        <h2 class="text-center mb-3 fw-bolder">Change book data</h2>
+        {%csrf_token%}
+        {{form.as_p}}
+        <button type="submit">change</button>
+    </form>
+</div>
+{%endblock%}
